@@ -1,4 +1,4 @@
 package com.york.EcommerceSystems.PaymentServices;
 
-public class PaymentServices {
+public class PaymentService {
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Ecommerce Systems/AuctionServices/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Ecommerce Systems/CatalogServices/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Ecommerce Systems/Controller/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Ecommerce Systems/DatabaseAccess/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Ecommerce Systems/PaymentServices/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Ecommerce Systems/UserServices/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/EcommerceSystems/src/main/java" charset="UTF-8" />
+  </component>
+</project>

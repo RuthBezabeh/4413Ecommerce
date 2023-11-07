@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="PaymentServices" />
+        <module name="UserServices" />
+        <module name="DatabaseAccess" />
+        <module name="CatalogServices" />
+        <module name="AuctionServices" />
+        <module name="Controller" />
+        <module name="EcommerceSystems" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AuctionServices" options="-parameters" />
+      <module name="CatalogServices" options="-parameters" />
+      <module name="Controller" options="-parameters" />
+      <module name="DatabaseAccess" options="-parameters" />
+      <module name="EcommerceSystems" options="-parameters" />
+      <module name="PaymentServices" options="-parameters" />
+      <module name="UserServices" options="-parameters" />
+    </option>
+  </component>
+</project>

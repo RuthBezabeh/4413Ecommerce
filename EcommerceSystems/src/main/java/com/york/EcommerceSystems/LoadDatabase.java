@@ -20,7 +20,7 @@ class LoadDatabase {
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
     @Bean
-    CommandLineRunner initDatabase(UserRepository repository1) {
+    CommandLineRunner initUserDatabase(UserRepository repository1) {
 
         return args -> {
             log.info("Preloading " + repository1.save(new User("Bilbo", "Baggins", "Keele", 111, "ABCABC", "Toronto", "Canada", "Bilbo", "password")));
@@ -34,7 +34,7 @@ class LoadDatabase {
 
 
         @Bean
-        CommandLineRunner initDatabase( ItemRepository repository2)
+        CommandLineRunner initItemDatabase( ItemRepository repository2)
         {
 
             return args -> {
@@ -45,7 +45,7 @@ class LoadDatabase {
         }
 
             @Bean
-            CommandLineRunner initDatabase(AuctionItemRepository repository3) {
+            CommandLineRunner initAuctionDatabase(AuctionItemRepository repository3) {
 
                 return args -> {
                     log.info("Preloading " + repository3.save(new AuctionItem(1L, "watch", "Forward", 20.0, new Date(),20.0, 1)));
@@ -55,7 +55,7 @@ class LoadDatabase {
             }
 
     @Bean
-    CommandLineRunner initDatabase(PaymentRepository repository4) {
+    CommandLineRunner initPaymentDatabase(PaymentRepository repository4) {
 
         return args -> {
             log.info("Preloading " + repository4.save(new Payment("Bilbo", "Baggins", "Keele", 111, "ABCABC","Toronto", "Canada", "Bilbo", "password")));
