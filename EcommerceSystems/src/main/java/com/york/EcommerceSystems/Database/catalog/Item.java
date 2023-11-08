@@ -13,7 +13,7 @@ public class Item {
     private String shippingTime; //need to clarify
     private Double startPrice;
     private Date endDate;
-    Item(){}
+    public Item(){}
     public Item(String itemName, String auctionType, String description, String shippingTime, Double startPrice, Date endDate) {
         this.itemName = itemName;
         this.auctionType = auctionType;
