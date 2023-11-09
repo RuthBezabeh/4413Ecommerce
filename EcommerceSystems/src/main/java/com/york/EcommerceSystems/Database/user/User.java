@@ -1,5 +1,4 @@
 package com.york.EcommerceSystems.Database.user;
-import java.util.Objects;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,7 +15,7 @@ public class User {
 
     private String userName;
     private String password;
-    User (){}
+    public User (String username2, String password2, String shippingAddress){}
     public User(String firstName, String lastName, String streetAddress, int streetNumber, String postalCode, String city, String country, String userName, String password) {
         this.firstName = firstName;
         LastName = lastName;
