@@ -32,8 +32,8 @@ public class User {
         return userId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserId(Long username2) {
+        this.userId = username2;
     }
 
     public String getFirstName() {
