@@ -1,21 +1,34 @@
 package com.ecommerce.PaymentServices;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.websocket.server.PathParam;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PaymentController {
-    private final PaymentRepository repository;
 
-    PaymentController(PaymentRepository repository){
-        this.repository = repository;
+    private PaymentService paymentService;
+
+    @Autowired
+    public PaymentController(PaymentService paymentService){
+        this.paymentService = paymentService;
+    }
+    // might need to be done by catalog and user instead
+    @GetMapping("/Payment/")
+    public void getPaymentInfo(@RequestParam int userId, @RequestParam int itemId, @RequestParam boolean expeditedShipping ) {
+        //return user information and total cost = price + shipping
+        // send request to database service for user info?
+        //
+
+
+        //return ;
     }
 
-    //@GetMapping("/Payment/{userId},{itemId}")
+    //
+    @PostMapping("/Payment/{userId},{itemid}")
+    public String processPayment(@PathParam("userId") int userId){
+
+        return "";
+    }
 
 //        @GET
 //        @Path("/{userId},{itemId}")
