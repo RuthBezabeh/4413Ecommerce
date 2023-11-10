@@ -8,10 +8,19 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class UserServices {
+public class UserServices implements SignUp {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserRepository userDAO;
+
+    @Override
+    public void userServicesSignUp(User user) {
+        // Additional validation or business logic can be added here
+        userDAO.save(user);
+    }
 
     // User sign-up operation
     public boolean signUp(String username, String password, String shippingAddress) {
