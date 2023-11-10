@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class UserServices implements SignUp {
+public class UserServices implements SignUp, SignIn {
 
     @Autowired
     private UserRepository userRepository;
@@ -16,6 +16,11 @@ public class UserServices implements SignUp {
     @Autowired
     private UserRepository userDAO;
 
+    @Autowired
+    public UserServices(UserRepository userDAO) {
+        this.userDAO = userDAO;
+    }
+    
     @Override
     public void userServicesSignUp(User user) {
         // Additional validation or business logic can be added here
@@ -56,6 +61,18 @@ public class UserServices implements SignUp {
 
         // Check if the user exists in the database
         Optional<User> existingUser = userRepository.findByUsernameAndPassword(username, password);
+        return existingUser.isPresent();
+    }
+
+    @Override
+    public boolean userServicesSignIn(String username, String password) {
+        // Validate inputs (you may add more validation logic)
+        if (username == null || password == null) {
+            return false;
+        }
+
+        // Check if the user exists in the database
+        Optional<User> existingUser = userDAO.findByUsernameAndPassword(username, password);
         return existingUser.isPresent();
     }
 }
