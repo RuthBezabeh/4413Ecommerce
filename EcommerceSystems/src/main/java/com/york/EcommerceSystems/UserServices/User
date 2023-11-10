@@ -17,7 +17,7 @@ public class User {
     private String shippingAddress;
 
     public User() {
-        // default constructor for JPA
+        //default constructor for JPA
     }
 
     public User(String username, String password, String shippingAddress) {
