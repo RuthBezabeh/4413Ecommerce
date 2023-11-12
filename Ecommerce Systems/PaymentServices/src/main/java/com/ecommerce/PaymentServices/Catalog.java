@@ -13,7 +13,7 @@ public class Catalog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Long item_id;
+    private Long itemId;
     private String item_name;
 
 
@@ -54,12 +54,12 @@ public class Catalog {
         this.auction_start_time = auction_start_time;
     }
 
-    public Long getItem_id() {
-        return item_id;
+    public Long getItemId() {
+        return itemId;
     }
 
-    public void setItem_id(Long item_id) {
-        this.item_id = item_id;
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
     }
 
     public String getItem_name() {

@@ -11,7 +11,7 @@ import java.util.Date;
 public class Auction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long Auction_id;
+    private  Long auctionId;
     private Long catalogId; //foreign key to same item in catalog
     private String itemname;
     private String auctionType;
@@ -30,12 +30,12 @@ public class Auction {
         this.highestBidder = highestBidder;
     }
 
-    public Long getAuction_id() {
-        return Auction_id;
+    public Long getAuctionId() {
+        return auctionId;
     }
 
-    public void setAuction_id(Long bid_id) {
-        this.Auction_id = bid_id;
+    public void setAuctionId(Long bid_id) {
+        this.auctionId = bid_id;
     }
 
     public Long getCatalogId() {

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+</head>
+<body>
+
+<h2>Payment Form</h2>
+
+<form id="paymentForm" th:action="@{/submitPayment}" method="post">
+    <!-- Common Fields -->
+    <label for="cardNumber">Card Number:</label>
+    <input type="text" id="cardNumber" name="cardNumber" required><br>
+
+    <label for="cardFirstName">First Name:</label>
+    <input type="text" id="cardFirstName" name="cardFirstName" required><br>
+
+    <label for="cardLastName">Last Name:</label>
+    <input type="text" id="cardLastName" name="cardLastName" required><br>
+
+    <label for="cardExpireDate">Expiration Date:</label>
+    <input type="text" id="cardExpireDate" name="cardExpireDate" required><br>
+
+    <label for="securityCode">Security Code:</label>
+    <input type="text" id="securityCode" name="securityCode" required><br>
+
+    <!-- Dynamic Fields -->
+   <!-- <div id="dynamicFields" th:each="dynamicField : ${dynamicFields}">
+        <label th:for="${dynamicField.name}" th:text="${dynamicField.label}"></label>
+        <input th:type="${dynamicField.type}" th:id="${dynamicField.name}" th:name="${dynamicField.name}" required><br>
+    </div> -->
+
+    <input type="submit" value="Submit">
+</form>
+
+<script th:inline="javascript">
+    /* <![CDATA[ */
+    var dynamicFields = /*[[${dynamicFields}]]*/ [];
+    /* ]]> */
+</script>
+
+</body>
+</html>
