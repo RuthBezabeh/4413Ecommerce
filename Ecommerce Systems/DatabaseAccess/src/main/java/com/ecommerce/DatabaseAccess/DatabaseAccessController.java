@@ -1,11 +1,18 @@
 package com.ecommerce.DatabaseAccess;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class DatabaseAccessController {
+
+    private DatabaseAccessService databaseAccessService;
+    @Autowired
+    public DatabaseAccessController(DatabaseAccessService databaseAccessService){
+        this.databaseAccessService = databaseAccessService;
+    }
     @GetMapping("/AuctionInfo/{auctionId}")
-    public void getAuctionItem(){
+    public void getAuctionItem(@RequestParam Long auctionId){
 
     }
 

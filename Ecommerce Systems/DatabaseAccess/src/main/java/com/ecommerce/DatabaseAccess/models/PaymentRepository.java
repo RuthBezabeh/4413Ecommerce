@@ -1,4 +1,4 @@
-package com.ecommerce.PaymentServices;
+package com.ecommerce.DatabaseAccess.models;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

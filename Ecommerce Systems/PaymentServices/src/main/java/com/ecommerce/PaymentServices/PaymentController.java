@@ -1,33 +1,39 @@
 package com.ecommerce.PaymentServices;
+
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("ecommerce/payment")
 public class PaymentController {
 
-    private PaymentService paymentService;
+    private final PaymentService paymentService;
+
 
     @Autowired
     public PaymentController(PaymentService paymentService){
+
         this.paymentService = paymentService;
     }
     // might need to be done by catalog and user instead
-    @GetMapping("/Payment/")
-    public void getPaymentInfo(@RequestParam int userId, @RequestParam int itemId, @RequestParam boolean expeditedShipping ) {
+    @GetMapping(path = "/Payment")
+    public void getPaymentInfo(@RequestParam Long userId, @RequestParam long itemId, @RequestParam boolean expeditedShipping ) {
         //return user information and total cost = price + shipping
         // send request to database service for user info?
         //
+        Double total = paymentService.getTotalPrice(userId, itemId, expeditedShipping);
 
 
         //return ;
     }
 
     //
-    @PostMapping("/Payment/{userId},{itemid}")
-    public String processPayment(@PathParam("userId") int userId){
-
-        return "";
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Payment processPayment(@RequestBody Payment payment){
+        return this.paymentService.processPayment(payment);
     }
 
 //        @GET
