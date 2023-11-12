@@ -1,14 +1,14 @@
-package com.ecommerce.PaymentServices;
+package com.ecommerce.DatabaseAccess.models;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
+
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name="Payment")
 public class Payment {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long payment_id;
     private Long userId;
     private Long item_id;
@@ -84,11 +84,6 @@ public class Payment {
         this.security_code = security_code;
     }
 
-    public Payment(){
-
-    }
-    public Payment(com.ecommerce.PaymentServices.Payment payment) {
-    }
     public Payment(Long userId, Long item_id, Float total, String card_number, String card_fname, String card_lname, String card_expire_date, String security_code, String userName) {
         this.userId = userId;
         this.item_id = item_id;

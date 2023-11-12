@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    username: admin
+    password: Ecommerce4413!
+    url: jdbc:mysql://ecommercedb.c25xj0lpmeiu.us-east-2.rds.amazonaws.com:3306/ecommercedb
+    driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
