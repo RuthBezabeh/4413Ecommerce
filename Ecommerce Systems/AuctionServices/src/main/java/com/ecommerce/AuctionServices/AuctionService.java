@@ -15,6 +15,6 @@ public class AuctionService {
     }
 
     public Auction getAuctionBid(int BidId){
-        return auctionRepository.getAuctionBid(BidId);
+        return auctionRepository.getById(BidId);
     }
 }
