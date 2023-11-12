@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CatalogController {
-    private Sell s;
-    private Search s1;
+
     private CatalogServiceDAO c;
     @PostMapping(value = "/")
     public Catalog createItem(@RequestBody Catalog catalog){
@@ -22,8 +21,8 @@ public class CatalogController {
         return c.readAll();
     }
 @GetMapping(value="item/{itemName}")
-    public Catalog getItem(String itemName){
-return c.read(itemName);
+    public Catalog getItem(Long itemId){
+return c.read(itemId);
     }
 
 }

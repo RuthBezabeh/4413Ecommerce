@@ -1,101 +1,138 @@
 package com.ecommerce.CatalogServices;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
 
+
+import java.sql.Time;
 import java.util.Date;
 
+
 @Entity
+@Table
 public class Catalog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long itemId;
-    @Column
-    private String itemName;
-    @Column
-    private String auctionType;
-    @Column
-    private String description;
-    private String shippingTime; //need to clarify
-    @Column
-    private Double startPrice;
-    private Date endDate;
-    private int auctionDuration;
+
+    private Long item_id;
+    private String item_name;
+
+
+    private String seller_username;
+    private String auction_type;
+
+    public Float getShipping_price() {
+        return shipping_price;
+    }
+
+    public void setShipping_price(Float shipping_price) {
+        this.shipping_price = shipping_price;
+    }
+
+    public Float getExpedited_shipping() {
+        return expedited_shipping;
+    }
+
+    public void setExpedited_shipping(Float expedited_shipping) {
+        this.expedited_shipping = expedited_shipping;
+    }
+
+    private Float shipping_price;
+    private Float expedited_shipping;
+
+    private Time auction_duration;
+    private String item_description;
+    private String shipping_time; //need to clarify
+    private Double initial_price;
+    private Date auction_start_time;
     public Catalog(){}
-    public Catalog(String itemName, String auctionType, String description, String shippingTime, Double startPrice, Date endDate) {
-        this.itemName = itemName;
-        this.auctionType = auctionType;
-        this.description = description;
-        this.shippingTime = shippingTime;
-        this.startPrice = startPrice;
-        this.endDate = endDate;
+    public Catalog(String item_name, String auction_type, String item_description, String shipping_time, Double initial_price, Time auction_start_time) {
+        this.item_name = item_name;
+        this.auction_type = auction_type;
+        this.item_description = item_description;
+        this.shipping_time = shipping_time;
+        this.initial_price = initial_price;
+        this.auction_start_time = auction_start_time;
     }
 
-    public Long getItemId() {
-        return itemId;
+    public Long getItem_id() {
+        return item_id;
     }
 
-    public void setItemId(Long itemId) {
-        this.itemId = itemId;
+    public void setItem_id(Long item_id) {
+        this.item_id = item_id;
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getItem_name() {
+        return item_name;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setItem_name(String item_name) {
+        this.item_name = item_name;
     }
 
-    public String getAuctionType() {
-        return auctionType;
+    public String getAuction_type() {
+        return auction_type;
     }
 
-    public void setAuctionType(String auctionType) {
-        this.auctionType = auctionType;
+    public void setAuction_type(String auction_type) {
+        this.auction_type = auction_type;
     }
 
-    public String getDescription() {
-        return description;
+    public String getItem_description() {
+        return item_description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setItem_description(String item_description) {
+        this.item_description = item_description;
     }
 
-    public String getShippingTime() {
-        return shippingTime;
+    public String getShipping_time() {
+        return shipping_time;
     }
 
-    public void setShippingTime(String shippingTime) {
-        this.shippingTime = shippingTime;
+    public void setShipping_time(String shipping_time) {
+        this.shipping_time = shipping_time;
     }
 
-    public Double getStartPrice() {
-        return startPrice;
+    public Double getInitial_price() {
+        return initial_price;
     }
 
-    public void setStartPrice(Double startPrice) {
-        this.startPrice = startPrice;
+    public void setInitial_price(Double initial_price) {
+        this.initial_price = initial_price;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public Date getEndTime() {
+        return auction_start_time;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-    public int getAuctionDuration() {
-        return auctionDuration;
+    public void setEndTime(Time auction_start_time) {
+        this.auction_start_time = auction_start_time;
     }
 
-    public void setAuctionDuration(int auctionDuration) {
-        this.auctionDuration = auctionDuration;
+    public String getSeller_username() {
+        return seller_username;
     }
 
+    public void setSeller_username(String seller_username) {
+        this.seller_username = seller_username;
+    }
+
+    public Date getAuction_start_time() {
+        return auction_start_time;
+    }
+
+
+    public Time getAuction_duration() {
+        return auction_duration;
+    }
+
+    public void setAuction_duration(Time auction_duration) {
+        this.auction_duration = auction_duration;
+    }
+
+    public void setAuction_start_time(Date auction_start_time) {
+        this.auction_start_time = auction_start_time;
+    }
 }
