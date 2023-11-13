@@ -1,21 +1,46 @@
 package com.ecommerce.AuctionServices;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class AuctionService {
 
     private final AuctionRepository auctionRepository;
+    private final PaymentRepository paymentRepository;
+    private final CatalogRepository catalogRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public AuctionService(AuctionRepository auctionRepository){
+    public AuctionService(AuctionRepository auctionRepository, PaymentRepository paymentRepository, CatalogRepository catalogRepository, UserRepository userRepository){
         this.auctionRepository = auctionRepository;
+        this.paymentRepository = paymentRepository;
+        this.catalogRepository = catalogRepository;
+        this.userRepository = userRepository;
     }
 
     public boolean createAuctionBid(Auction auction) {
-//       //Step 1. Check that time for that auction has not run out yet, so bid for that auction can be placed
+//        //Step 1. Check that the item is on the catalog; still on auction so not bought or time has not run out.
+//        Long item_id = auction.getCatalogId();
+//
+//        //Check 1: Check Time first, as scheduler may not have removed it yet
+//        auctionRepository.findFromCatalog
+//
+
+
+
+
+
+
+
+
 //       //Step 2. Check if the item_id exists in catlogue
 //
 //        //    public void checkForFinishedCatalog(){
@@ -81,6 +106,18 @@ public class AuctionService {
 //            return false;
 //        }
         return false;
+    }
+
+    @Async
+    @Scheduled(fixedRate = 1000)
+    public void checkForFinishedCatalog(){
+        List<Auction> allBids = auctionRepository.findAll();
+        List<Long> allItemIds = new ArrayList<Long>();
+        for(int i = 0; i<allBids.size(); i++){
+            allItemIds.add(allItemIds);
+        }
+
+
     }
 
     public Auction getAuctionBid(Long BidId){
