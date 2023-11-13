@@ -1,5 +1,0 @@
-# 
-
-## mavin instructions
-
-## Database instructions
