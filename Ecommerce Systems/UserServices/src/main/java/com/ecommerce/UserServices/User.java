@@ -5,44 +5,55 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.sql.Time;
+import java.util.Date;
+import java.util.Random;
 
 @Entity
-@Table(name = "app_users")
+@Table
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int userId;
     private String username;
     private String password;
     private String shippingAddress;
 
-    // Getters
-    public String getUsername() {
-        return this.username;
+    public User() {
+        Random random = new Random();
+        this.userId = random.nextInt(1000);
+    }
+    
+    public int getUserId() {
+        return userId;
     }
 
-    public String getPassword() {
-        return this.password;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public String getShippingAddress() {
-        return this.shippingAddress;
-    }
-
-    // Setters (if needed)
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public void setShippingAddress(String shippingAddress) {
         this.shippingAddress = shippingAddress;
     }
 
-    public boolean validatePassword(String password) {
-        return this.password.equals(password);
+    public String getShippingAddress() {
+        return shippingAddress;
     }
+
 }
