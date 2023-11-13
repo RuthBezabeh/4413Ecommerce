@@ -1,28 +1,35 @@
 package com.ecommerce.CatalogServices;
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@RequestMapping("ecommerce/catalog")
 public class CatalogController {
 
-    private CatalogServiceDAO c;
-    @PostMapping(value = "/")
+    private final CatalogServiceDAO catalogServiceDAO;
+    @Autowired
+    public CatalogController (CatalogServiceDAO catalogServiceDAO){
+        this.catalogServiceDAO=catalogServiceDAO;
+    }
+    @PostMapping(path = "/")
     public Catalog createItem(@RequestBody Catalog catalog){
-        return c.create(catalog);
+        return catalogServiceDAO.create(catalog);
     }
-    @GetMapping(value = "/items")
+    @GetMapping(path = "/items")
     public List<Catalog> getAllItems(){
-        return c.readAll();
+        return catalogServiceDAO.readAll();
     }
-@GetMapping(value="item/{itemName}")
-    public Catalog getItem(Long itemId){
-return c.read(itemId);
+@GetMapping(path = "/item/{item_id}")
+    public Catalog getItem(@PathVariable Long item_id){
+return catalogServiceDAO.read(item_id);
     }
+//    @GetMapping(path = "/item/{item_name}")
+//    public List<Catalog> getItemName(@PathVariable String item_name){
+//        return catalogServiceDAO.readName(item_name);
+//    }
+
 
 }

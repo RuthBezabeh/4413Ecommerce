@@ -26,9 +26,14 @@ public class CatalogServiceDAO {
     }
 
     public Catalog read(Long itemId) {
-        return catalogRepo.getById(itemId);
+        return catalogRepo.findById(itemId).get();
 
     }
+//    public List<Catalog> readName (String item_name){
+//        return catalogRepo.findByItemName(item_name);
+//
+//    }
+
 
     //    public void update(Long itemId,Catalog item){
 //        for (int i = 0; i < catalogs.size(); i++) {

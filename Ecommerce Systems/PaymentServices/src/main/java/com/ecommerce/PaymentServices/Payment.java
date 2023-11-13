@@ -9,9 +9,9 @@ import lombok.Data;
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long payment_id;
+    private  Long paymentId;
     private Long userId;
-    private Long item_id;
+    private Long itemId;
     private Float total;
     private String card_number;
     private String card_fname;
@@ -20,20 +20,37 @@ public class Payment {
     private String security_code;
     private String userName;
 
-    public Long getPayment_id() {
-        return payment_id;
+    public Payment(){
+
+    }
+    public Payment(com.ecommerce.PaymentServices.Payment payment) {
+    }
+    public Payment(Long userId, Long itemId, Float total, String card_number, String card_fname, String card_lname, String card_expire_date, String security_code, String userName) {
+        this.userId = userId;
+        this.itemId = itemId;
+        this.total = total;
+        this.card_number = card_number;
+        this.card_fname = card_fname;
+        this.card_lname = card_lname;
+        this.card_expire_date = card_expire_date;
+        this.security_code = security_code;
+        this.userName = userName;
     }
 
-    public void setPayment_id(Long payment_id) {
-        this.payment_id = payment_id;
+    public Long getPaymentId() {
+        return paymentId;
     }
 
-    public Long getItem_id() {
-        return item_id;
+    public void setPaymentId(Long paymentId) {
+        this.paymentId = paymentId;
     }
 
-    public void setItem_id(Long item_id) {
-        this.item_id = item_id;
+    public Long getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
     }
 
     public Float getTotal() {
@@ -84,22 +101,7 @@ public class Payment {
         this.security_code = security_code;
     }
 
-    public Payment(){
 
-    }
-    public Payment(com.ecommerce.PaymentServices.Payment payment) {
-    }
-    public Payment(Long userId, Long item_id, Float total, String card_number, String card_fname, String card_lname, String card_expire_date, String security_code, String userName) {
-        this.userId = userId;
-        this.item_id = item_id;
-        this.total = total;
-        this.card_number = card_number;
-        this.card_fname = card_fname;
-        this.card_lname = card_lname;
-        this.card_expire_date = card_expire_date;
-        this.security_code = security_code;
-        this.userName = userName;
-    }
 
     public Long getUserId() {
         return userId;
