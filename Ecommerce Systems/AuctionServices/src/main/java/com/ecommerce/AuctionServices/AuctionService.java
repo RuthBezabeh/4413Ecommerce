@@ -5,10 +5,10 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.*;
 
 @Service
 public class AuctionService {
@@ -113,11 +113,23 @@ public class AuctionService {
     public void checkForFinishedCatalog(){
         List<Auction> allBids = auctionRepository.findAll();
         List<Long> allItemIds = new ArrayList<Long>();
+        Set<Long> set = new HashSet<>();
+
         for(int i = 0; i<allBids.size(); i++){
-            allItemIds.add(allItemIds);
+            allItemIds.add(i, allBids.get(i).getCatalogId());
         }
-
-
+        set.addAll(allItemIds);
+        List<Catalog> catItems = new ArrayList<>();
+        for(int i = 0; i<set.toArray().length; i++){
+            catItems.add(i, (Catalog) set.toArray()[i]);
+        }
+        for(int i = 0; i<catItems.size(); i++){
+            if(LocalTime.now() ==  catItems.get(i).getAuction_end_time()
+            && LocalDate.now() == catItems.get(i).getAuction_end_date()){
+                catalogRepository.deleteById(catItems.get(i).getItemId());
+            }
+        }
+        System.out.print("Hello");
     }
 
     public Auction getAuctionBid(Long BidId){

@@ -11,7 +11,7 @@ import java.util.Date;
 public class Auction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long auctionId;
+    private Long auctionId;
     private Long catalogId; //foreign key to same item in catalog
     private String itemname;
     private String auctionType;
