@@ -13,28 +13,13 @@ public class Catalog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Long item_id;
+    private Long itemId;
     private String item_name;
 
 
     private String seller_username;
     private String auction_type;
 
-    public Float getShipping_price() {
-        return shipping_price;
-    }
-
-    public void setShipping_price(Float shipping_price) {
-        this.shipping_price = shipping_price;
-    }
-
-    public Float getExpedited_shipping() {
-        return expedited_shipping;
-    }
-
-    public void setExpedited_shipping(Float expedited_shipping) {
-        this.expedited_shipping = expedited_shipping;
-    }
 
     private Float shipping_price;
     private Float expedited_shipping;
@@ -53,13 +38,29 @@ public class Catalog {
         this.initial_price = initial_price;
         this.auction_start_time = auction_start_time;
     }
-
-    public Long getItem_id() {
-        return item_id;
+    public Float getShipping_price() {
+        return shipping_price;
     }
 
-    public void setItem_id(Long item_id) {
-        this.item_id = item_id;
+    public void setShipping_price(Float shipping_price) {
+        this.shipping_price = shipping_price;
+    }
+
+    public Float getExpedited_shipping() {
+        return expedited_shipping;
+    }
+
+    public void setExpedited_shipping(Float expedited_shipping) {
+        this.expedited_shipping = expedited_shipping;
+    }
+
+
+    public Long getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
     }
 
     public String getItem_name() {

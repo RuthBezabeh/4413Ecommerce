@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CatalogRepository extends JpaRepository<Catalog, Long>{
 
+    Catalog findByItemId(Long item_id);
 }
