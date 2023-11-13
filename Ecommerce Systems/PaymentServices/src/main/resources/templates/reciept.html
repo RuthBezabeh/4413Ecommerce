@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+</head>
+<body>
+<h2>Receipt</h2>
+<!-- Dynamic Fields -->
+<p>FirstName: <span th:text="${winner.FirstName}"></span></p>
+<p>LastName: <span th:text="${winner.LastName}"></span></p>
+<p>Street: <span th:text="${winner.StreetName}"></span></p>
+<p>Street Number: <span th:text="${winner.StreetNumber}"></span></p>
+<p>Country: <span th:text="${winner.Country}"></span></p>
+<p>City: <span th:text="${winner.City}"></span></p>
+<p>Postal Code: <span th:text="${winner.PostalCode}"></span></p>
+
+<p>Item Bought: <span th:text="${itemwon.ItemName}"></span></p>
+<p>Item Id: <span th:text="${itemwon.ItemId}"></span></p>
+<p>Total Paid: <span th:text="${itemwon.TotalCost}"></span></p>
+
+
+<p>The Item will be shipped in  <span th:text="${itemwon.ShippingInfo}"></span> days.</p>
+<p>Thank You for Shopping!</p>
+<!-- <div id="dynamicFields" th:each="dynamicField : ${dynamicFields}">
+     <label th:for="${dynamicField.name}" th:text="${dynamicField.label}"></label>
+     <input th:type="${dynamicField.type}" th:id="${dynamicField.name}" th:name="${dynamicField.name}" required><br>
+ </div> -->
+
+
+<button type="button"> Back to main page </button>
+<script th:inline="javascript">
+    /* <![CDATA[ */
+    var dynamicFields = /*[[${dynamicFields}]]*/ [];
+    /* ]]> */
+</script>
+
+</body>
+</html>

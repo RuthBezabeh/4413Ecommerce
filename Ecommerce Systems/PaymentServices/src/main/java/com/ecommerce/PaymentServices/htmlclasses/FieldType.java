@@ -1,4 +1,4 @@
-package com.ecommerce.PaymentServices;
+package com.ecommerce.PaymentServices.htmlclasses;
 
 public enum FieldType {
     STRING,

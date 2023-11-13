@@ -27,18 +27,18 @@ VALUES
   ('Item10', 'user10', 'Auction', 14.0, 28.0, '120:00:00', 'Description10', '10 days', 65.0, CURRENT_TIMESTAMP);
 
 -- Populate Auction Table
-INSERT INTO auction (auction_type, catalog_id, end_date, highest_bid, highest_bidder, itemname, start_price, auctioned_item_id, highest_bidder_name, highest_price, auction_end_time)
+INSERT INTO auction (auction_type, catalog_id, end_date, highest_bid, highest_bidder, itemname, start_price)
 VALUES
-    ('Auction', 1, '2023-01-01 12:00:00.000000', 50.0, 1, 'Item1', 30.0, 101, 'User1', 50.0, '2023-01-01 14:00:00.000000'),
-    ('Auction', 2, '2023-01-02 12:00:00.000000', 40.0, 2, 'Item2', 25.0, 102, 'User2', 40.0, '2023-01-02 14:00:00.000000'),
-    ('Auction', 3, '2023-01-03 12:00:00.000000', 35.0, 3, 'Item3', 20.0, 103, 'User3', 35.0, '2023-01-03 14:00:00.000000'),
-    ('Auction', 4, '2023-01-04 12:00:00.000000', 45.0, 4, 'Item4', 28.0, 104, 'User4', 45.0, '2023-01-04 14:00:00.000000'),
-    ('Auction', 5, '2023-01-05 12:00:00.000000', 60.0, 5, 'Item5', 40.0, 105, 'User5', 60.0, '2023-01-05 14:00:00.000000'),
-    ('Auction', 6, '2023-01-06 12:00:00.000000', 55.0, 6, 'Item6', 35.0, 106, 'User6', 55.0, '2023-01-06 14:00:00.000000'),
-    ('Auction', 7, '2023-01-07 12:00:00.000000', 70.0, 7, 'Item7', 45.0, 107, 'User7', 70.0, '2023-01-07 14:00:00.000000'),
-    ('Auction', 8, '2023-01-08 12:00:00.000000', 80.0, 8, 'Item8', 55.0, 108, 'User8', 80.0, '2023-01-08 14:00:00.000000'),
-    ('Auction', 9, '2023-01-09 12:00:00.000000', 65.0, 9, 'Item9', 38.0, 109, 'User9', 65.0, '2023-01-09 14:00:00.000000'),
-    ('Auction', 10, '2023-01-10 12:00:00.000000', 75.0, 10, 'Item10', 48.0, 110, 'User10', 75.0, '2023-01-10 14:00:00.000000');
+('ForwardAuction', 1, '2023-11-12 12:00:00', 50.00, 1, 'Item 1', 10.00),
+('DutchAuction', 2, '2023-11-13 14:30:00', 30.50, 2, 'Item 2', 15.00),
+('ForwardAuction', 3, '2023-11-14 18:45:00', 75.75, 3, 'Item 3', 20.00),
+('DutchAuction', 4, '2023-11-15 20:00:00', 40.20, 4, 'Item 4', 25.00),
+('ForwardAuction', 5, '2023-11-16 10:30:00', 60.00, 5, 'Item 5', 30.00),
+('DutchAuction', 6, '2023-11-17 15:15:00', 25.75, 6, 'Item 6', 35.00),
+('ForwardAuction', 7, '2023-11-18 19:30:00', 90.50, 7, 'Item 7', 40.00),
+('DutchAuction', 8, '2023-11-19 21:45:00', 55.25, 8, 'Item 8', 45.00),
+('ForwardAuction', 9, '2023-11-20 11:00:00', 70.00, 9, 'Item 9', 50.00),
+('DutchAuction', 10, '2023-11-21 16:45:00', 35.80, 10, 'Item 10', 55.00);
 
 -- Populate Payment Table
 INSERT INTO payment (card_expire_date, card_fname, card_lname, card_number, item_id, security_code, total, user_id, user_name)

@@ -1,18 +1,11 @@
 package com.ecommerce.PaymentServices;
 
+import com.ecommerce.PaymentServices.htmlclasses.ItemWon;
+import com.ecommerce.PaymentServices.htmlclasses.Winner;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Service
 public class PaymentService {
@@ -36,30 +29,19 @@ public class PaymentService {
         this.auctionRepository = auctionRepository;
         System.out.println("service created or rep");
     }
-//
-//
-//    public Mono<PaymentResponse> getPaymentFromDb(Long id) {
-//        return webClient.get()
-//                .uri("payment/1")
-//                .accept(MediaType.APPLICATION_JSON)
-//                .retrieve()
-//                .bodyToMono(PaymentResponse.class);
-//    }
-    public String getPaymentPage(Long userId,Long itemId, boolean expeditedShipping ) {
-        //return user information and total cost = price + shipping
-        // send request to database service for user info?
 
+    public String getPaymentPage(Long userId,Long itemId, boolean expeditedShipping, Model model ) {
+
+//
 //        Double total = getTotalPrice(userId, itemId, expeditedShipping);
 //        User user = userRepository.findByUserId(userId);
 //        Catalog item = catalogRepository.findByItemId(itemId);
+//        Winner winner1 = new Winner(user.getFirstname(), user.getLastname(), user.getStreet_name(), user.getStreet_number(), user.getCountry(), user.getCity(), user.getPostal_code(), total);
+        Winner winner = new Winner();
+        ItemWon itemwon = new ItemWon();
 
-//        List<FieldDefinition> dynamicFields = Arrays.asList(
-//                new FieldDefinition("Item", "Amount", FieldType.FLOAT),
-//                new FieldDefinition("quantity", "Quantity", FieldType.INT)
-//                // Add more fields as needed
-//        );
-//        // Pass dynamic fields to the view
-//        model.addAttribute("dynamicFields", dynamicFields);
+        model.addAttribute("winner", winner);
+        model.addAttribute("itemwon", itemwon);
         return "paymentForm";
 
         //return ;
@@ -82,9 +64,15 @@ public class PaymentService {
 
     }
 
-    public Payment processPayment(@RequestBody Payment payment){
-        return paymentRepository.save(payment);
+    public String processPayment(@RequestBody Payment payment, Model model){
+        paymentRepository.save(payment);
 
+        Winner winner = new Winner();
+        ItemWon itemwon = new ItemWon();
+
+        model.addAttribute("winner", winner);
+        model.addAttribute("itemwon", itemwon);
+        return "reciept";
     }
 
 

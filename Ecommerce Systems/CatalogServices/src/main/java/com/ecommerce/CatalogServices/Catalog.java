@@ -1,8 +1,7 @@
 package com.ecommerce.CatalogServices;
 
 import jakarta.persistence.*;
-import java.sql.Date;
-import java.sql.Time;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -11,7 +10,7 @@ import java.time.LocalTime;
 public class Catalog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long item_id;
+    private Long itemId;
     private String item_name;
     private String seller_username;
     private String auction_type;
@@ -29,8 +28,8 @@ public class Catalog {
     public Catalog() {
     }
 
-    public Catalog(Long item_id, String item_name, String seller_username, String auction_type, Float shipping_price, Float expedited_shipping, LocalTime auction_start_time, LocalDate auction_start_date, LocalTime auction_duration, LocalTime auction_end_time, LocalDate auction_end_date, String item_description, String shipping_time, Float initial_price) {
-        this.item_id = item_id;
+    public Catalog(Long itemId, String item_name, String seller_username, String auction_type, Float shipping_price, Float expedited_shipping, LocalTime auction_start_time, LocalDate auction_start_date, LocalTime auction_duration, LocalTime auction_end_time, LocalDate auction_end_date, String item_description, String shipping_time, Float initial_price) {
+        this.itemId = itemId;
         this.item_name = item_name;
         this.seller_username = seller_username;
         this.auction_type = auction_type;
@@ -46,12 +45,12 @@ public class Catalog {
         this.initial_price = initial_price;
     }
 
-    public Long getItem_id() {
-        return item_id;
+    public Long getItemId() {
+        return itemId;
     }
 
-    public void setItem_id(Long item_id) {
-        this.item_id = item_id;
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
     }
 
     public String getItem_name() {

@@ -26,7 +26,7 @@ public class PaymentController {
         //return user information and total cost = price + shipping
         // send request to database service for user info?
 
-        return paymentService.getPaymentPage(userId, itemId, expeditedShipping);
+        return paymentService.getPaymentPage(userId, itemId, expeditedShipping, model);
 
     }
 
@@ -38,10 +38,11 @@ public class PaymentController {
     }
 
     //
-    @PostMapping
+    @PostMapping(produces = MediaType.TEXT_HTML_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public Payment processPayment(@RequestBody Payment payment){
-        return this.paymentService.processPayment(payment);
+    public String processPayment(@RequestBody Payment payment, Model model){
+
+        return this.paymentService.processPayment(payment, model);
     }
 
 //        @GET

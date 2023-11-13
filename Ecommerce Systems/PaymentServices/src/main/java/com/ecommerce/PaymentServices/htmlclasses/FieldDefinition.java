@@ -1,5 +1,7 @@
-package com.ecommerce.PaymentServices;
+package com.ecommerce.PaymentServices.htmlclasses;
 
+
+import com.ecommerce.PaymentServices.htmlclasses.FieldType;
 
 public class FieldDefinition {
     private String name;
