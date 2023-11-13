@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/auction")
+@RequestMapping(path = "/ecommerce/auction")
 public class AuctionController {
 
     private final AuctionService auctionService;
@@ -15,9 +15,18 @@ public class AuctionController {
         this.auctionService = auctionService;
     }
 
-    @GetMapping (path = "/get/{bidId}")
-    public Auction getAuctionBid(@PathVariable int bidId){
-        return auctionService.getAuctionBid(bidId);
+    @PostMapping
+    public boolean createAuctionBid(@RequestBody Auction auction){
+        return auctionService.createAuctionBid(auction);
+    }
+
+    @GetMapping (path = "/{auctionId}")
+    public Auction getAuctionBid(@PathVariable Long auctionId){
+        return auctionService.getAuctionBid(auctionId);
+    }
+
+    @GetMapping List<Auction> getAllAuctionBids(){
+        return auctionService.getAllAuctionBids();
     }
 
 

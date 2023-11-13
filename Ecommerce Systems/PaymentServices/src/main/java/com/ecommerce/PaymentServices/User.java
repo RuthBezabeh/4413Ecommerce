@@ -9,8 +9,7 @@ import jakarta.persistence.*;
 @Table(name="User")
 public class User {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private  Long userId;
+    private Long userId;
     private String firstname;
     private String lastname;
     private String street_name;
@@ -18,12 +17,15 @@ public class User {
     private String postal_code;
     private String city;
     private String country;
-
     private String username;
     private String password;
-    public User (String username2, String password2, String shippingAddress){}
-    public User(String firstName, String lastname, String street_name, int street_number, String postal_code, String city, String country, String username, String password) {
-        this.firstname = firstName;
+
+    public User() {
+    }
+
+    public User(Long userId, String firstname, String lastname, String street_name, int street_number, String postal_code, String city, String country, String username, String password) {
+        this.userId = userId;
+        this.firstname = firstname;
         this.lastname = lastname;
         this.street_name = street_name;
         this.street_number = street_number;
@@ -38,8 +40,8 @@ public class User {
         return userId;
     }
 
-    public void setUserId(Long username2) {
-        this.userId = username2;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getFirstname() {
@@ -113,7 +115,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
-
 }

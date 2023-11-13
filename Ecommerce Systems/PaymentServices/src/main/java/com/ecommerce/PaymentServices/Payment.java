@@ -120,7 +120,4 @@ public class Payment {
         this.userName = userName;
     }
 
-
-
-
 }

@@ -1,67 +1,96 @@
 package com.ecommerce.AuctionServices;
 
-
+import lombok.Data;
 import jakarta.persistence.*;
 
+import java.util.Date;
+
+@Data
 @Entity
-@Table
+@Table(name="Auction")
 public class Auction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int bidId;
-    private int auctionedItemId;
-    private double highestPrice;
-    private String highestBidderName;
-    @Transient
-    private String auctionEndTime;
-
-    public Auction() {
-
-    }
-    public Auction(int auctionedItemId, double highestPrice, String highestBidderName, String auctionEndTime) {
-        this.auctionedItemId = auctionedItemId;
-        this.highestPrice = highestPrice;
-        this.highestBidderName = highestBidderName;
-        this.auctionEndTime = auctionEndTime;
-    }
-
-    public int getBidId() {
-        return bidId;
+    private  Long auctionId;
+    private Long catalogId; //foreign key to same item in catalog
+    private String itemname;
+    private String auctionType;
+    private Double startPrice;
+    private Date end_date;
+    private Double highestBid;
+    private int highestBidder; //id, foreign key to user
+    Auction(){}
+    public Auction(Long catalogId, String itemname, String auctionType, Double startPrice, Date end_date, Double highestBid, int highestBidder) {
+        this.catalogId = catalogId;
+        this.itemname = itemname;
+        this.auctionType = auctionType;
+        this.startPrice = startPrice;
+        this.end_date = end_date;
+        this.highestBid = highestBid;
+        this.highestBidder = highestBidder;
     }
 
-    public void setBidId(int bidId) {
-        this.bidId = bidId;
+    public Long getAuctionId() {
+        return auctionId;
     }
 
-    public int getAuctionedItemId() {
-        return auctionedItemId;
+    public void setAuctionId(Long bid_id) {
+        this.auctionId = bid_id;
     }
 
-    public void setAuctionedItemId(int auctionedItemId) {
-        this.auctionedItemId = auctionedItemId;
+    public Long getCatalogId() {
+        return catalogId;
     }
 
-    public double getHighestPrice() {
-        return highestPrice;
+    public void setCatalogId(Long catalogId) {
+        this.catalogId = catalogId;
     }
 
-    public void setHighestPrice(double highestPrice) {
-        this.highestPrice = highestPrice;
+    public String getItemname() {
+        return itemname;
     }
 
-    public String getHighestBidderName() {
-        return highestBidderName;
+    public void setItemname(String itemname) {
+        this.itemname = itemname;
     }
 
-    public void setHighestBidderName(String highestBidderName) {
-        this.highestBidderName = highestBidderName;
+    public String getAuctionType() {
+        return auctionType;
     }
 
-    public String getAuctionEndTime() {
-        return auctionEndTime;
+    public void setAuctionType(String auctionType) {
+        this.auctionType = auctionType;
     }
 
-    public void setAuctionEndTime(String auctionEndTime) {
-        this.auctionEndTime = auctionEndTime;
+    public Double getStartPrice() {
+        return startPrice;
+    }
+
+    public void setStartPrice(Double startPrice) {
+        this.startPrice = startPrice;
+    }
+
+    public Date getEnd_date() {
+        return end_date;
+    }
+
+    public void setEnd_date(Date end_date) {
+        this.end_date = end_date;
+    }
+
+    public Double getHighestBid() {
+        return highestBid;
+    }
+
+    public void setHighestBid(Double highestBid) {
+        this.highestBid = highestBid;
+    }
+
+    public int getHighestBidder() {
+        return highestBidder;
+    }
+
+    public void setHighestBidder(int highestBidder) {
+        this.highestBidder = highestBidder;
     }
 }
