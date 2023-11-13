@@ -20,21 +20,6 @@ public class Catalog {
     private String seller_username;
     private String auction_type;
 
-    public Float getShipping_price() {
-        return shipping_price;
-    }
-
-    public void setShipping_price(Float shipping_price) {
-        this.shipping_price = shipping_price;
-    }
-
-    public Float getExpedited_shipping() {
-        return expedited_shipping;
-    }
-
-    public void setExpedited_shipping(Float expedited_shipping) {
-        this.expedited_shipping = expedited_shipping;
-    }
 
     private Float shipping_price;
     private Float expedited_shipping;
@@ -53,6 +38,22 @@ public class Catalog {
         this.initial_price = initial_price;
         this.auction_start_time = auction_start_time;
     }
+    public Float getShipping_price() {
+        return shipping_price;
+    }
+
+    public void setShipping_price(Float shipping_price) {
+        this.shipping_price = shipping_price;
+    }
+
+    public Float getExpedited_shipping() {
+        return expedited_shipping;
+    }
+
+    public void setExpedited_shipping(Float expedited_shipping) {
+        this.expedited_shipping = expedited_shipping;
+    }
+
 
     public Long getItemId() {
         return itemId;

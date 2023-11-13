@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AuctionRepository extends JpaRepository<Auction, Long> {
-    Auction findByAuctionId(Long payment_id);
+    Auction findByAuctionId(Long auction_id);
     Auction findByHighestBidder(Long userId);
     Auction findByCatalogId(Long item_id);
 
