@@ -26,9 +26,10 @@ public class AuctionService {
         this.userRepository = userRepository;
     }
 
-    public boolean createAuctionBid(Auction auction) {
-//        //Step 1. Check that the item is on the catalog; still on auction so not bought or time has not run out.
-//        Long item_id = auction.getCatalogId();
+    public boolean createBid(Long auctionId, Long userId, Double bid) {
+        //Step 1. Check that the item is on the catalog; still on auction so not bought or time has not run out.
+        Auction auction = auctionRepository.findById(auctionId).get();
+        Long item_id = auction.getCatalogId();
 //
 //        //Check 1: Check Time first, as scheduler may not have removed it yet
 //        auctionRepository.findFromCatalog
@@ -111,25 +112,28 @@ public class AuctionService {
     @Async
     @Scheduled(fixedRate = 1000)
     public void checkForFinishedCatalog(){
-        List<Auction> allBids = auctionRepository.findAll();
-        List<Long> allItemIds = new ArrayList<Long>();
-        Set<Long> set = new HashSet<>();
+        List<Auction> allAuctions = auctionRepository.findAll();
+        List<Long> allCatalogIds = new ArrayList<Long>();
+        Set<Long> setOfCatalogIds = new HashSet<>();
 
-        for(int i = 0; i<allBids.size(); i++){
-            allItemIds.add(i, allBids.get(i).getCatalogId());
+        for(int i = 0; i<allAuctions.size(); i++){
+            allCatalogIds.add(i, allAuctions.get(i).getCatalogId());
         }
-        set.addAll(allItemIds);
+        setOfCatalogIds.addAll(allCatalogIds);
         List<Catalog> catItems = new ArrayList<>();
-        for(int i = 0; i<set.toArray().length; i++){
-            catItems.add(i, (Catalog) set.toArray()[i]);
+        for(int i = 0; i<setOfCatalogIds.toArray().length; i++){
+            catItems.add(i, catalogRepository.findById(allCatalogIds.get(i)).get());
         }
         for(int i = 0; i<catItems.size(); i++){
-            if(LocalTime.now() ==  catItems.get(i).getAuction_end_time()
-            && LocalDate.now() == catItems.get(i).getAuction_end_date()){
+            if(LocalTime.now().isAfter(catItems.get(i).getAuction_end_time())
+            && (LocalDate.now().isEqual(catItems.get(i).getAuction_end_date()) || LocalDate.now().isAfter(catItems.get(i).getAuction_end_date()))){
                 catalogRepository.deleteById(catItems.get(i).getItemId());
             }
+
         }
         System.out.print("Hello");
+
+
     }
 
     public Auction getAuctionBid(Long BidId){
@@ -167,5 +171,10 @@ public class AuctionService {
         else{
             return false;
         }
+    }
+
+    public Auction createAuction(Auction auction) {
+
+        return auctionRepository.save(auction);
     }
 }
