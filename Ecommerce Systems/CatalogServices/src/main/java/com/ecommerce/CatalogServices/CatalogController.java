@@ -26,7 +26,7 @@ public class CatalogController {
         return catalogServiceDAO.readAll();
     }
 
-    @GetMapping(path = "/item/{item_id}")
+    @GetMapping(path = "/item/{itemId}")
     public Catalog getItem(@PathVariable Long item_id){
         return catalogServiceDAO.read(item_id);
     }
