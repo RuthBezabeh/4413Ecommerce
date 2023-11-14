@@ -8,10 +8,10 @@
         <outputRelativeToContentRoot value="true" />
         <module name="PaymentServices" />
         <module name="UserServices" />
-        <module name="DatabaseAccess" />
-        <module name="CatalogServices" />
         <module name="AuctionServices" />
         <module name="Controller" />
+        <module name="DatabaseAccess" />
+        <module name="CatalogServices" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

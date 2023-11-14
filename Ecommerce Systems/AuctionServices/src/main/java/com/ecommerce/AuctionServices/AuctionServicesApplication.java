@@ -16,6 +16,8 @@ public class AuctionServicesApplication {
 		SpringApplication.run(AuctionServicesApplication.class, args);
 	}
 
+
+
 //	//peforms the query for obtaining the selling user
 //	@Query("SELECT u.username from user u WHERE u.username = ?1")
 //	List<String> getSellerByUserName(String seller);

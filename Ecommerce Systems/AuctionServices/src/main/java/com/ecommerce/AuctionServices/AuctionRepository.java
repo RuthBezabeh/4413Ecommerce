@@ -12,13 +12,13 @@ import java.util.List;
 @Repository
 public interface AuctionRepository extends JpaRepository<Auction, Long> {
 
-    //allows us to get the auction based on auctiontype and catalogId
-    @Query("SELECT a from Auction a where a.auctionType = ?1 AND a.catalogId = ?2")
-    List<Auction> findByAuctionTypeAndCatalogId(String auctionType, Long catalogId);
-
-    //allows us to remove the auction based on auctiontype and catalogId
-    @Modifying
-    @Transactional
-    @Query("DELETE FROM Auction a WHERE a.auctionType = ?1 AND a.catalogId = ?2")
-    int deleteByAuction_IdAndCatalogId(Long Auction_id, Long catalogId);
+//    //allows us to get the auction based on auctiontype and catalogId
+//    @Query("SELECT a from Auction a where a.auctionType = ?1 AND a.catalogId = ?2")
+//    List<Auction> findByAuctionTypeAndCatalogId(String auctionType, Long catalogId);
+//
+//    //allows us to remove the auction based on auctiontype and catalogId
+//    @Modifying
+//    @Transactional
+//    @Query("DELETE FROM Auction a WHERE a.auctionType = ?1 AND a.catalogId = ?2")
+//    int deleteByAuction_IdAndCatalogId(Long Auction_id, Long catalogId);
 }
