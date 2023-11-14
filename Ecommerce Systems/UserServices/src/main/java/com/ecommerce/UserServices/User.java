@@ -22,7 +22,15 @@ public class User {
 
     public User() {
     }
+    private String shippingAddress;
 
+    public String getShippingAddress() {
+        return shippingAddress;
+    }
+
+    public void setShippingAddress(String shippingAddress) {
+        this.shippingAddress = shippingAddress;
+    }
     public User(Long userId, String firstname, String lastname, String street_name, int street_number, String postal_code, String city, String country, String username, String password) {
         this.userId = userId;
         this.firstname = firstname;

@@ -16,11 +16,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void signUp(String username, String password, String shippingAddress) {
+    Optional<User> existingUser = userRepository.findByUsername(username);
+    
+    if (existingUser.isPresent()) {
+        // User already exists, throw an exception 
+        throw new RuntimeException("User already exists with the username: " + username);
+    } else {
         User newUser = new User();
         newUser.setUsername(username);
         newUser.setPassword(password);
         newUser.setShippingAddress(shippingAddress);
         userRepository.save(newUser); 
+    }
     }
 
     @Override
