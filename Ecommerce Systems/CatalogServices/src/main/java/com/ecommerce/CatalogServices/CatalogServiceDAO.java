@@ -5,7 +5,7 @@ import com.ecommerce.CatalogServices.Catalog;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-
+import org.springframework.ui.Model;
 import java.sql.*;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -94,5 +94,10 @@ public class CatalogServiceDAO {
         //setting end date and time
         item.setAuction_end_date(endDateTime.toLocalDate());
         item.setAuction_end_time(endDateTime.toLocalTime());
+    }
+    public String getSearchPage(Long itemId,String itemName,Model model){
+        model.addAttribute("item_Id", itemId);
+        model.addAttribute("item_name", itemName);
+        return "search";
     }
 }
