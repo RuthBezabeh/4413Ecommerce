@@ -3,6 +3,8 @@ package com.ecommerce.PaymentServices;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 @Entity
 @Table(name="Payment")
@@ -16,7 +18,7 @@ public class Payment {
     private String card_number;
     private String card_fname;
     private String card_lname;
-    private String card_expire_date;
+    private Date card_expire_date;
     private String security_code;
     private String userName;
 
@@ -25,7 +27,7 @@ public class Payment {
     }
     public Payment(com.ecommerce.PaymentServices.Payment payment) {
     }
-    public Payment(Long userId, Long itemId, Float total, String card_number, String card_fname, String card_lname, String card_expire_date, String security_code, String userName) {
+    public Payment(Long userId, Long itemId, Float total, String card_number, String card_fname, String card_lname, Date card_expire_date, String security_code, String userName) {
         this.userId = userId;
         this.itemId = itemId;
         this.total = total;
@@ -85,11 +87,11 @@ public class Payment {
         this.card_lname = card_lname;
     }
 
-    public String getCard_expire_date() {
+    public Date getCard_expire_date() {
         return card_expire_date;
     }
 
-    public void setCard_expire_date(String card_expire_date) {
+    public void setCard_expire_date(Date card_expire_date) {
         this.card_expire_date = card_expire_date;
     }
 

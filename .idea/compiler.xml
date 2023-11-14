@@ -12,9 +12,11 @@
         <module name="CatalogServices" />
         <module name="AuctionServices" />
         <module name="Controller" />
-        <module name="EcommerceSystems" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="EcommerceSystems" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

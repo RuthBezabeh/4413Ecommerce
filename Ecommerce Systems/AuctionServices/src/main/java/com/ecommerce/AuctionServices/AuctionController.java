@@ -16,8 +16,14 @@ public class AuctionController {
     }
 
     @PostMapping
-    public boolean createAuctionBid(@RequestBody Auction auction){
-        return auctionService.createAuctionBid(auction);
+    public Auction createAuction(@RequestBody Auction auction){
+        return auctionService.createAuction(auction);
+    }
+
+
+    @PostMapping(path = "/bid/{auctionId}")
+    public boolean createBid(@PathVariable Long auctionId, @RequestParam Double bid, @RequestParam Long userId){
+        return auctionService.createBid(auctionId,userId, bid);
     }
 
     @GetMapping (path = "/{auctionId}")
