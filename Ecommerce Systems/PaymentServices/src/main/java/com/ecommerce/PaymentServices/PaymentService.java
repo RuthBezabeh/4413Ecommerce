@@ -1,6 +1,7 @@
 package com.ecommerce.PaymentServices;
 
 import com.ecommerce.PaymentServices.htmlclasses.ItemWon;
+import com.ecommerce.PaymentServices.htmlclasses.PaymentInfo;
 import com.ecommerce.PaymentServices.htmlclasses.Winner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,12 +34,13 @@ public class PaymentService {
     public String getPaymentPage(Long userId,Long itemId, boolean expeditedShipping, Model model ) {
 
 //
-//        Double total = getTotalPrice(userId, itemId, expeditedShipping);
-//        User user = userRepository.findByUserId(userId);
-//        Catalog item = catalogRepository.findByItemId(itemId);
-//        Winner winner1 = new Winner(user.getFirstname(), user.getLastname(), user.getStreet_name(), user.getStreet_number(), user.getCountry(), user.getCity(), user.getPostal_code(), total);
+        //Double total = getTotalPrice(userId, itemId, expeditedShipping);
+        //User user = userRepository.findByUserId(userId);
+        //Catalog item = catalogRepository.findByItemId(itemId);
+        //Winner winner = new Winner(user.getFirstname(), user.getLastname(), user.getStreet_name(), user.getStreet_number(), user.getCountry(), user.getCity(), user.getPostal_code());
         Winner winner = new Winner();
         ItemWon itemwon = new ItemWon();
+        //ItemWon itemwon = new ItemWon(item.getItemId(), item.getItem_name(), total, item.getShipping_time());
 
         model.addAttribute("winner", winner);
         model.addAttribute("itemwon", itemwon);
@@ -66,6 +68,8 @@ public class PaymentService {
 
     public String processPayment(@RequestBody Payment payment, Model model){
         paymentRepository.save(payment);
+//        User user = userRepository.findByUserId(payment.getUserId());
+//        Catalog item = catalogRepository.findByItemId(payment.getItemId());
 
         Winner winner = new Winner();
         ItemWon itemwon = new ItemWon();

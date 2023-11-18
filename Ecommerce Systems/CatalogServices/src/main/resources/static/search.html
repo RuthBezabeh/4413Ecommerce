@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Page</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    input[type="text"] {
+        padding: 8px;
+        width: 300px;
+    }
+
+    button {
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+<h1>Search Page</h1>
+<form id="searchForm" action="/" method="post">
+  <label for="searchInput">Search:</label>
+  <input type="text" id="searchInput" name="searchInput" placeholder="Enter your search term">
+  <button type="submit">Search</button>
+</form>
+
+<!-- You can add more content below the search bar -->
+
+<script th:inline="javascript">
+  /*<![CDATA[*/
+  document.getElementById("searchForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevents the default form submission behavior
+      var searchTerm = document.getElementById("searchInput").value;
+      alert("You searched for: " + searchTerm);
+      // Add your search logic here
+  });
+  /*]]>*/
+</script>
+</body>
+
+</html>
