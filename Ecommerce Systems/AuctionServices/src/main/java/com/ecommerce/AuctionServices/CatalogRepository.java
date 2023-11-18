@@ -19,10 +19,9 @@ public interface CatalogRepository extends JpaRepository<Catalog, Long>{
     //Catalog findByEndDateTimeAfterAndEndDateTimeIsNotNullOrderByEndDateTimeAsc();
 
 
-    @Query("SELECT ae FROM Catalog ae WHERE ae.auctionEndDate >= :currentDate " +
-            "AND ae.auctionEndTime >= :currentTime ORDER BY ae.auctionEndTime ASC")
-   Catalog findClosestToEndDateTime(
-            @Param("currentDate") Date currentDate,
-            @Param("currentTime") Time currentTime
+    @Query("SELECT c FROM Catalog c WHERE c.auctionEndDate >= :currentDate " +
+            "ORDER BY c.auctionEndDate ASC, c.auctionEndTime ASC")
+   List<Catalog> findClosestToEndDateTime(
+            @Param("currentDate") Date currentDate
     );
 }
