@@ -71,12 +71,12 @@ public class CatalogServiceDAO {
     //Set time for start date, time, end time, and end date
     private void setCatalogueTimeInfo(Catalog item) {
         //2. Obtain Start time and Start Date
-        item.setAuction_start_time(LocalTime.now());
-        item.setAuction_start_date(LocalDate.now());
+        item.setAuction_start_time(Time.valueOf(LocalTime.now()));
+        item.setAuction_start_date(Date.valueOf(LocalDate.now()));
 
         //3. Obtain end time and end date
         //Converts start date and start time to a date-time object
-        LocalDateTime startDateTime = LocalDateTime.of(item.getAuction_start_date(), item.getAuction_start_time());
+        LocalDateTime startDateTime = LocalDateTime.of(item.getAuction_start_date().toLocalDate(), item.getAuction_start_time().toLocalTime());
 
         //converts duration into seperate parts; hours, min, seconds
         int durationHours = item.getAuction_duration().getHour();
@@ -92,8 +92,8 @@ public class CatalogServiceDAO {
         LocalDateTime endDateTime = startDateTime.plus(duration);
 
         //setting end date and time
-        item.setAuction_end_date(endDateTime.toLocalDate());
-        item.setAuction_end_time(endDateTime.toLocalTime());
+        item.setAuction_end_date(Date.valueOf(endDateTime.toLocalDate()));
+        item.setAuction_end_time(Time.valueOf(endDateTime.toLocalTime()));
     }
     public String getSearchPage(Long itemId,String itemName,Model model){
         model.addAttribute("item_Id", itemId);

@@ -2,6 +2,8 @@ package com.ecommerce.PaymentServices;
 
 import jakarta.persistence.*;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -16,11 +18,15 @@ public class Catalog {
     private String auction_type;
     private Float shipping_price;
     private Float expedited_shipping;
-    private LocalTime auction_start_time;
-    private LocalDate auction_start_date;
+    private Time auctionEndTime;
+    private Date auctionEndDate;
+
+
+
+    private Time auctionStartTime;
+    private Date auctionStartDate;
     private LocalTime auction_duration;
-    private LocalTime auction_end_time;
-    private LocalDate auction_end_date;
+
     private String item_description;
     private String shipping_time; //need to clarify
     private Float initial_price;
@@ -28,18 +34,19 @@ public class Catalog {
     public Catalog() {
     }
 
-    public Catalog(Long itemId, String item_name, String seller_username, String auction_type, Float shipping_price, Float expedited_shipping, LocalTime auction_start_time, LocalDate auction_start_date, LocalTime auction_duration, LocalTime auction_end_time, LocalDate auction_end_date, String item_description, String shipping_time, Float initial_price) {
+
+    public Catalog(Long itemId, String item_name, String seller_username, String auction_type, Float shipping_price, Float expedited_shipping, Time auctionEndTime, Date auctionEndDate, Time auctionStartTime, Date auctionStartDate, LocalTime auction_duration, String item_description, String shipping_time, Float initial_price) {
         this.itemId = itemId;
         this.item_name = item_name;
         this.seller_username = seller_username;
         this.auction_type = auction_type;
         this.shipping_price = shipping_price;
         this.expedited_shipping = expedited_shipping;
-        this.auction_start_time = auction_start_time;
-        this.auction_start_date = auction_start_date;
+        this.auctionEndTime = auctionEndTime;
+        this.auctionEndDate = auctionEndDate;
+        this.auctionStartTime = auctionStartTime;
+        this.auctionStartDate = auctionStartDate;
         this.auction_duration = auction_duration;
-        this.auction_end_time = auction_end_time;
-        this.auction_end_date = auction_end_date;
         this.item_description = item_description;
         this.shipping_time = shipping_time;
         this.initial_price = initial_price;
@@ -93,20 +100,36 @@ public class Catalog {
         this.expedited_shipping = expedited_shipping;
     }
 
-    public LocalTime getAuction_start_time() {
-        return auction_start_time;
+    public Time getAuctionEndTime() {
+        return auctionEndTime;
     }
 
-    public void setAuction_start_time(LocalTime auction_start_time) {
-        this.auction_start_time = auction_start_time;
+    public void setAuctionEndTime(Time auctionEndTime) {
+        this.auctionEndTime = auctionEndTime;
     }
 
-    public LocalDate getAuction_start_date() {
-        return auction_start_date;
+    public Date getAuctionEndDate() {
+        return auctionEndDate;
     }
 
-    public void setAuction_start_date(LocalDate auction_start_date) {
-        this.auction_start_date = auction_start_date;
+    public void setAuctionEndDate(Date auctionEndDate) {
+        this.auctionEndDate = auctionEndDate;
+    }
+
+    public Time getAuctionStartTime() {
+        return auctionStartTime;
+    }
+
+    public void setAuctionStartTime(Time auctionStartTime) {
+        this.auctionStartTime = auctionStartTime;
+    }
+
+    public Date getAuctionStartDate() {
+        return auctionStartDate;
+    }
+
+    public void setAuctionStartDate(Date auctionStartDate) {
+        this.auctionStartDate = auctionStartDate;
     }
 
     public LocalTime getAuction_duration() {
@@ -117,21 +140,6 @@ public class Catalog {
         this.auction_duration = auction_duration;
     }
 
-    public LocalTime getAuction_end_time() {
-        return auction_end_time;
-    }
-
-    public void setAuction_end_time(LocalTime auction_end_time) {
-        this.auction_end_time = auction_end_time;
-    }
-
-    public LocalDate getAuction_end_date() {
-        return auction_end_date;
-    }
-
-    public void setAuction_end_date(LocalDate auction_end_date) {
-        this.auction_end_date = auction_end_date;
-    }
 
     public String getItem_description() {
         return item_description;
